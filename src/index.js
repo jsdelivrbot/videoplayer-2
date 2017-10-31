@@ -27,7 +27,7 @@ class App extends Component {
                 <SearchBar />
                 <VideoPlugin video={this.state.clickedVideo}/>
                 <VideoList
-                onVideoClick={clickedVideo => this.setState({clickedVideo})} 
+                onVideoClick={clickedVideo => this.setState({clickedVideo})}
                 videos={this.state.videos}/>
               </div>);
     }
