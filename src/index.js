@@ -4,6 +4,7 @@ import YTSearch from 'youtube-api-search'
 import SearchBar from './Components/searchbar';
 import VideoList from './Components/videolist';
 import VideoPlugin from './Components/video_plugin';
+import _ from 'lodash';
 const API_KEY = 'AIzaSyA6Iv0ASORpI5vwLrE8t2llJCGbqZaeEDM';
 
 class App extends Component {
@@ -13,7 +14,7 @@ class App extends Component {
         videos: [],
         clickedVideo:null
       }
-    //this.videoSearch('surfboards');
+    this.videoSearch('welcome');
     }
 
     videoSearch(searchterm){
@@ -26,8 +27,10 @@ class App extends Component {
     }
 
     render(){
+      const search = _.debounce(searchterm => {this.videoSearch(searchterm)},500)
+
       return (<div>
-                <SearchBar onSearchType={searchterm => this.videoSearch(searchterm)}/>
+                <SearchBar onSearchType={search}/>
                 <VideoPlugin video={this.state.clickedVideo}/>
                 <VideoList
                 onVideoClick={clickedVideo => this.setState({clickedVideo})}
