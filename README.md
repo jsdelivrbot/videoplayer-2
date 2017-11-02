@@ -1,6 +1,6 @@
-# videoplayer
+# Videoplayer
 
-This component is built using just React.
+This component works on a browser and is built using just React.
 
 
 ## Features
